@@ -2,7 +2,7 @@
 
 function WorkExperience() {
     return (
-        <div className="WorkExperience">
+        <section className="WorkExperience">
             <p className="Overline Light-Grey">WORK EXPERINCE</p>
 
             <p className="Heading2">Companies I have worked for in the past</p>
@@ -26,7 +26,7 @@ function WorkExperience() {
                     <p className="Body2 Light-Grey">I started my design career with Dribbble. I was incharge of creating illustrations for the platform.</p>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

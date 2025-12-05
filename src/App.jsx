@@ -1,20 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './elements/Navbar.jsx'
 import HeroSection from './elements/HeroSection.jsx'
 import WorkExperience from './elements/WorkExperience.jsx'
+import ValueSection from './elements/ValuesSection.jsx'
+import SkillSet from './elements/SkillSet.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isScrolled, setIsScrolled] = useState(false);
 
   return (
     <div className="App">
-      <nav>
         <Navbar />
-      </nav>
       <main>
         <HeroSection />
         <WorkExperience />
+        <ValueSection />
+        <SkillSet />
       </main>
 
       <footer>

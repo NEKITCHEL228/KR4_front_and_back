@@ -6,7 +6,7 @@ function HeroSection() {
 
 
     return (
-        <div className="HeroSection">
+        <section className="HeroSection">
             <img
                 src={heroImage}
                 alt="Robin Williams Prime"
@@ -20,7 +20,7 @@ function HeroSection() {
                 <h4 className="Heading4">a great project that needs some amazing skills, I’m your guy.</h4>
             </div>
             <div className="HeroSection-Rectangle"></div>
-        </div>);
+        </section>);
 }
 
 export default HeroSection;
