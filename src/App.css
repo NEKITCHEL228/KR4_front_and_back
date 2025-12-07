@@ -140,7 +140,7 @@
   color: var(--color-light-grey);
 }
 
-.White{
+.White {
   color: white;
 }
 
@@ -305,7 +305,7 @@ main {
   text-decoration: underline;
 }
 
-.ValueSection-Text a::before{
+.ValueSection-Text a::before {
   content: "More about me";
 }
 
@@ -325,22 +325,43 @@ main {
   object-fit: contain;
 }
 
-.SkillSet{
+.SkillSet {
   padding: 4rem 3rem;
   display: flex;
   gap: 4rem;
 }
 
-.SkillSet-Text{
+.SkillSet-Text {
   width: 50%;
 }
 
-.SkillSet-Grid{
+.SkillSet-Grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
 }
 
-.SkillSet-Grid-Item{
+.SkillSet-Grid-Item {
   padding: 2rem;
   max-width: 80%;
+}
+
+.Swiper {
+  margin: 0 auto;
+  max-width: fit-content;
+}
+
+.CompaniesLine {
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  box-sizing: border-box;
+}
+
+.CompaniesLine-Item {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 3rem;
+  border: 1px solid var(--color-level1);
 }
