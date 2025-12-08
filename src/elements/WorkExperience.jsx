@@ -2,7 +2,7 @@
 
 function WorkExperience() {
     return (
-        <section className="WorkExperience">
+        <section className="WorkExperience" id="Experience">
             <p className="Overline Light-Grey">WORK EXPERINCE</p>
 
             <p className="Heading2">Companies I have worked for in the past</p>

@@ -13,9 +13,16 @@ function Navbar() {
         window.addEventListener('scroll', handleScroll);
 
         handleScroll();
-        
+
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    let scrollToSmthng = (smthng) => {
+        const section = document.getElementById(smthng);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
 
     return (
 
@@ -26,15 +33,13 @@ function Navbar() {
 
             <div className="Navbar-Second">
                 <ul className="Navbar-Second-List">
-                    <li className="Navbar-Second-List-Item"><a href="#" className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Experience</a></li>
-                    <li className="Navbar-Second-List-Item"><a href="#" className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Work</a></li>
+                    <li className="Navbar-Second-List-Item"><a href="#Experience" onClick={(e) => { e.preventDefault(); scrollToSmthng('Experience'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Experience</a></li>
+                    <li className="Navbar-Second-List-Item"><a href="#MyProjects" onClick={(e) => { e.preventDefault(); scrollToSmthng('MyProjects'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Work</a></li>
                     <li className="Navbar-Second-List-Item"><a href="#" className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Photography</a></li>
                     <li className="Navbar-Second-List-Item"><a href="#" className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Contact</a></li>
                 </ul>
             </div>
         </div>
-
-
     );
 }
 
