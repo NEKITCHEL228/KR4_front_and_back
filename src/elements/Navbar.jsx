@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import '../App.css'
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
+    const [VisibleSection, setVisibleSection] = useState('HeroSection');
+
+    const sectionsRef = useRef({});
 
     useEffect(() => {
         const handleScroll = () => {
@@ -17,29 +20,69 @@ function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    let scrollToSmthng = (smthng) => {
+    useEffect(() => {
+        const options = {
+            root: null, // относительно viewport
+            rootMargin: '-50% 0px -50% 0px', // центр viewport
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setVisibleSection(entry.target.id);
+                }
+            });
+        }, options);
+
+        const sections = document.querySelectorAll('[data-section]');
+
+        sections.forEach(section => {
+            observer.observe(section);
+            sectionsRef.current[section.id] = section;
+        });
+
+        return () => {
+            sections.forEach(section => observer.unobserve(section));
+            observer.disconnect();
+        };
+    }, []);
+
+    const scrollToSmthng = (smthng) => {
         const section = document.getElementById(smthng);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
+    const isActive = (section) => {
+        if (VisibleSection == section){
+            return 'Navbar-Second-List-Link--Active';
+        }
+        else{
+            return '';
+        }
+    }
+
     return (
 
-        <div className={`Navbar ${scrolled ? 'Navbar--Scrolled' : ''}`} id="Navbar">
-            <div className="Navbar-Main">
-                <a href="#Navbar" className="Navbar-Main-Link">Robin. W</a>
+        <header className={`Navbar ${scrolled ? 'Navbar--Scrolled' : ''}`} id="Navbar">
+            <div className='Navbar__Container'>
+                <div className="Navbar-Main">
+                    <a href="#HeroSection" onClick={(e) => { e.preventDefault(); scrollToSmthng('HeroSection'); }} className="Navbar-Main-Link">Robin. W</a>
+                </div>
+
+                <div className="Navbar-Second">
+                    <ul className="Navbar-Second-List">
+                        <li className="Navbar-Second-List-Item"><a href="#Experience" onClick={(e) => { e.preventDefault(); scrollToSmthng('Experience'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('Experience')}`}>Experience</a></li>
+                        <li className="Navbar-Second-List-Item"><a href="#MyProjects" onClick={(e) => { e.preventDefault(); scrollToSmthng('MyProjects'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('MyProjects')}`}>Work</a></li>
+                        <li className="Navbar-Second-List-Item"><a href="#" className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Photography</a></li>
+                        <li className="Navbar-Second-List-Item"><a href="#" className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Contact</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div className="Navbar-Second">
-                <ul className="Navbar-Second-List">
-                    <li className="Navbar-Second-List-Item"><a href="#Experience" onClick={(e) => { e.preventDefault(); scrollToSmthng('Experience'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Experience</a></li>
-                    <li className="Navbar-Second-List-Item"><a href="#MyProjects" onClick={(e) => { e.preventDefault(); scrollToSmthng('MyProjects'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Work</a></li>
-                    <li className="Navbar-Second-List-Item"><a href="#" className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Photography</a></li>
-                    <li className="Navbar-Second-List-Item"><a href="#" className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Contact</a></li>
-                </ul>
-            </div>
-        </div>
+        </header>
     );
 }
 

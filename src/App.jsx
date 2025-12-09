@@ -5,7 +5,7 @@ import HeroSection from './elements/HeroSection.jsx'
 import WorkExperience from './elements/WorkExperience.jsx'
 import ValueSection from './elements/ValuesSection.jsx'
 import SkillSet from './elements/SkillSet.jsx'
-import CompaniesLine from './elements/CompaniesLine.jsx'
+import CompaniesLineSection from './elements/CompaniesLine.jsx'
 import MyProjects from './elements/MyProjects.jsx'
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <WorkExperience />
         <ValueSection />
         <SkillSet />
-        <CompaniesLine />
+        <CompaniesLineSection />
         <MyProjects />
       </main>
 
