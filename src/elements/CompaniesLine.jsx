@@ -9,8 +9,8 @@ function CompaniesLine() {
 
     return (
         <section className="ComapniesLineSection" data-section id="ComapniesLineSection">
-            <div className="Swiper-Wraper Swiper__Container">
-                <div className="CompaniesLine">
+            <div className="Swiper-Wraper">
+                <div className="CompaniesLine Swiper__Container">
 
                     <div className="CompaniesLine-Item">
                         <CompaniesLineIcon1 />

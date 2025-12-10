@@ -7,6 +7,9 @@ import ValueSection from './elements/ValuesSection.jsx'
 import SkillSet from './elements/SkillSet.jsx'
 import CompaniesLineSection from './elements/CompaniesLine.jsx'
 import MyProjects from './elements/MyProjects.jsx'
+import InstagramSection from './elements/Instagram.jsx'
+import DribleSection from './elements/DribleSection.jsx'
+import ThoughtsSection from './elements/ThoughtsSection.jsx'
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,6 +24,9 @@ function App() {
         <SkillSet />
         <CompaniesLineSection />
         <MyProjects />
+        <InstagramSection />
+        <DribleSection />
+        <ThoughtsSection />
       </main>
 
       <footer>

@@ -164,7 +164,7 @@
 
 
 [class*=__Container] {
-  max-width: 1380px;
+  max-width: 1380px !important;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -246,7 +246,7 @@
   background-color: var(--color-base);
 }
 
-.Navbar-Second-List-Link--Active{
+.Navbar-Second-List-Link--Active {
   background-color: var(--color-primary);
 }
 
@@ -333,16 +333,16 @@ main {
 }
 
 .ValueSection-Text {
-  padding: 80px 40px;
+  padding: 120px 70px;
 }
 
-.ValueSection-Text p{
+.ValueSection-Text p {
   margin-top: 40px;
 }
 
 .ValueSection-Text a {
   display: inline-block;
-  margin-top: 7rem;
+  margin-top: 50px;
   padding-bottom: 4px;
   text-decoration: underline;
 }
@@ -391,7 +391,7 @@ main {
   transition: transform 0.3s linear;
 }
 
-.SkillSet-Grid-Item:hover{
+.SkillSet-Grid-Item:hover {
   transform: scale(1.01);
 }
 
@@ -410,26 +410,56 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 3rem;
+  min-height: 140px;
+  max-width: 340px;
   border: 1px solid var(--color-level1);
 }
 
 .MyProjects {
-  padding: 4rem 0rem;
+  margin: 80px 0px;
+}
+
+.MyProjects__Container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 .MyProjects-Items {
-  justify-self: center;
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
 }
 
 .MyProjects-List-Item {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 636px;
+  gap: 25px;
+}
+
+.My-Projects-List-Button {
+  background-color: var(--color-base);
+  max-width: fit-content;
+  justify-self: center;
+  align-self: center;
+  margin: auto 0;
+  border: 1px solid var(--color-primary);
+  transition: background-color 0.3s linear,
+    transform 0.3s linear;
+}
+
+.My-Projects-List-Button a {
+  display: block;
+  color: var(--color-text);
+  padding: 24px 32px;
+}
+
+.My-Projects-List-Button:hover {
+  background-color: var(--color-level1);
+  transform: scale(0.99);
 }
 
 .MyProjects-List-Item-Card,
@@ -442,6 +472,8 @@ h2 {
   display: flex;
   flex-direction: column;
   transition: transform 0.3s linear;
+
+  max-width: 100%;
 }
 
 .MyProjects-List-Item-Card:hover {
@@ -458,4 +490,106 @@ h2 {
 
 .MyProjects-List-Item-Card-Description {
   background-color: var(--color-level1);
+}
+
+.MyProjects-List-Item-Card-Description h3 {
+  margin: 30px;
+  margin-bottom: 15px;
+  max-width: inherit;
+}
+
+.MyProjects-List-Item-Card-Description p {
+  margin: 30px;
+  margin-top: 0;
+  padding: 0;
+  padding-bottom: 15px;
+}
+
+.InstagramSection {
+  background-color: var(--color-violet-accent);
+}
+
+.InstagramSection__Container {
+  max-width: 1440px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.InstagramSection-Text {
+  padding: 120px 70px;
+}
+
+.InstagramSection-Text p {
+  margin-top: 40px;
+}
+
+.InstagramSection-Text a {
+  display: inline-block;
+  margin-top: 50px;
+  padding-bottom: 4px;
+  text-decoration: underline;
+}
+
+.InstagramSection-Text a::before {
+  content: "Follow me on IG";
+}
+
+.InstagramSection a:hover {
+  cursor: pointer;
+}
+
+.InstagramSection-Picture {
+  display: block;
+}
+
+.InstagramSection-Picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.DribleSection {
+  padding: 120px 0;
+  background-color: var(--color-base);
+}
+
+.DribleSection__Container {
+  padding: 0 110px;
+}
+
+.DribleSection-Text{
+  margin-bottom: 120px;
+}
+
+.DribleSection-Text h2{
+  margin-bottom: 30px;
+}
+
+.DribleSection-Text p{
+  margin-bottom: 30px;
+}
+
+.DribleSection-Text a {
+  display: inline-block;
+  padding-bottom: 4px;
+  text-decoration: underline;
+}
+
+.DribleSection-Text a::before {
+  content: "Follow me on Dribbble";
+}
+
+.DribleSection-Text a:hover {
+  cursor: pointer;
+}
+
+.DribleSection-Picture{
+  border-radius: 8px;
+}
+
+.DribleSection-Picture img{
+  width: 100%;
+  height: 100%;
 }
