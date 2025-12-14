@@ -10,9 +10,11 @@ import MyProjects from './elements/MyProjects.jsx'
 import InstagramSection from './elements/Instagram.jsx'
 import DribleSection from './elements/DribleSection.jsx'
 import ThoughtsSection from './elements/ThoughtsSection.jsx'
+import PhotographySection from './elements/PhotographySection.jsx'
+import ContactSection from './elements/ContactSection.jsx'
+import Footer from './elements/Footer.jsx'
 
 function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
 
   return (
     <div className="App">
@@ -27,11 +29,10 @@ function App() {
         <InstagramSection />
         <DribleSection />
         <ThoughtsSection />
+        <PhotographySection />
+        <ContactSection />
       </main>
-
-      <footer>
-        
-      </footer>
+        <Footer />
     </div>
   );
 }

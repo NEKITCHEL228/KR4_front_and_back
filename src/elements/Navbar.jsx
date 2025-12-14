@@ -74,10 +74,10 @@ function Navbar() {
 
                 <div className="Navbar-Second">
                     <ul className="Navbar-Second-List">
-                        <li className="Navbar-Second-List-Item"><a href="#Experience" onClick={(e) => { e.preventDefault(); scrollToSmthng('Experience'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('Experience')}`}>Experience</a></li>
-                        <li className="Navbar-Second-List-Item"><a href="#MyProjects" onClick={(e) => { e.preventDefault(); scrollToSmthng('MyProjects'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('MyProjects')}`}>Work</a></li>
-                        <li className="Navbar-Second-List-Item"><a href="#" className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Photography</a></li>
-                        <li className="Navbar-Second-List-Item"><a href="#" className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''}`}>Contact</a></li>
+                        <li className="Navbar-Second-List-Item"><a href="#Experience" onClick={(e) => { e.preventDefault(); scrollToSmthng('Experience'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('Experience')} ${isActive('ValueSection')} ${isActive('SkillSet')} ${isActive('ComapniesLineSection')}`}>Experience</a></li>
+                        <li className="Navbar-Second-List-Item"><a href="#MyProjects" onClick={(e) => { e.preventDefault(); scrollToSmthng('MyProjects'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('MyProjects')} ${isActive('InstagramSection')} ${isActive('DribleSection')} ${isActive('ThoughtsSection')}`}>Work</a></li>
+                        <li className="Navbar-Second-List-Item"><a href="#Photography" onClick={(e) => {e.preventDefault(); scrollToSmthng('PhotographySection'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('PhotographySection')}`}>Photography</a></li>
+                        <li className="Navbar-Second-List-Item"><a href="#Contact" onClick={(e) => {e.preventDefault(); scrollToSmthng('ContactSection')}} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('ContactSection')}`}>Contact</a></li>
                     </ul>
                 </div>
             </div>

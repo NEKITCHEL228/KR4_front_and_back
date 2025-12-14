@@ -158,7 +158,9 @@
   color: var(--color-level1);
 }
 
-* ::before ::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -223,7 +225,7 @@
 }
 
 .Navbar-Second-List-Item:hover {
-  background: var(--color-light-grey);
+  background: var(--color-primary);
 }
 
 .Navbar-Second-List-Link {
@@ -236,7 +238,8 @@
 }
 
 .Navbar-Second-List-Link:hover {
-  background-color: var(--color-dark-grey);
+  background-color: var(--color-primary);
+  color: var(--color-text)
 }
 
 .Navbar--Scrolled,
@@ -298,8 +301,7 @@ main {
 }
 
 .WorkExperience {
-  padding: 4rem 3rem;
-  max-width: 100vw;
+  padding: 110px 0px;
 }
 
 .WorkExperience p {
@@ -416,7 +418,7 @@ main {
 }
 
 .MyProjects {
-  margin: 80px 0px;
+  padding: 110px 0px;
 }
 
 .MyProjects__Container {
@@ -559,15 +561,15 @@ h2 {
   padding: 0 110px;
 }
 
-.DribleSection-Text{
+.DribleSection-Text {
   margin-bottom: 120px;
 }
 
-.DribleSection-Text h2{
+.DribleSection-Text h2 {
   margin-bottom: 30px;
 }
 
-.DribleSection-Text p{
+.DribleSection-Text p {
   margin-bottom: 30px;
 }
 
@@ -585,11 +587,241 @@ h2 {
   cursor: pointer;
 }
 
-.DribleSection-Picture{
+.DribleSection-Picture {
   border-radius: 8px;
 }
 
-.DribleSection-Picture img{
+.DribleSection-Picture img {
   width: 100%;
   height: 100%;
+}
+
+.ThoughtsSection {
+  background-color: var(--color-base);
+}
+
+.ThoughtsSection__Container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ThoughtsSection-Text {
+  grid-column: 1;
+}
+
+.ThoughtsSection-Text h2 {
+  margin-bottom: 15px;
+}
+
+.ThoughtsSection-Text p {
+  margin-bottom: 30px;
+}
+
+.ThoughtsSection-Text a {
+  display: inline-block;
+  padding-bottom: 4px;
+  text-decoration: underline;
+}
+
+.ThoughtsSection-Text a::before {
+  content: "See all testimonials";
+}
+
+.ThoughtsSection-Text a:hover {
+  cursor: pointer;
+}
+
+.ThoughtsSection-Cards {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.ThoughtsSection-Card {
+  display: flex;
+  flex-direction: column;
+}
+
+.ThoughtsSection-Card-Picture {
+  display: block;
+  width: 100%;
+  height: 362px;
+}
+
+.ThoughtSection-Card-Text {
+  border: 1px solid var(--color-dark-grey);
+  border-top: none;
+  padding: 60px;
+}
+
+.ThoughtSection-Card-Text h3 {
+  margin-bottom: 70px;
+}
+
+.ThoughtSection-Card-Text p {
+  margin: 0;
+}
+
+.ThoughtsSection-Card img {
+  width: 100%;
+  object-fit: fill;
+}
+
+.PhotographySection {
+  background-color: var(--color-base);
+  padding: 110px 0;
+}
+
+.PhotographySection__Container {}
+
+.PhotographySection__Container h2 {
+  margin-bottom: 10px;
+}
+
+.PhotographySection__Container p {
+  max-width: 45%;
+}
+
+.PhotographySection-Tab {
+  margin-top: 60px;
+}
+
+.PhotographySection-Buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 200px;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.PhotographySection-Button {
+  padding: 20px;
+  border-radius: 0;
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-base);
+  transition: background-color 0.2s ease-in;
+}
+
+.PhotographySection-Button--Active {
+  background-color: var(--color-primary);
+}
+
+.PhotographySection-Pictures {
+  display: none;
+}
+
+.PhotographySection-Pictures--Active {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.PhotographySection-Pictures-Item {
+  width: 306px;
+  height: 420px;
+  display: block;
+}
+
+.PhotographySection-Pictures-Picture img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ContactSection {
+  background-color: var(--color-base);
+  padding: 110px 0;
+}
+
+.ContactSection__Container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 110px;
+  justify-self: center;
+  justify-items: center;
+}
+
+.ContactSection-Text h2 {
+  margin-bottom: 20px;
+}
+
+.ContactSection-Form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.ContactSection-Form-Name,
+.ContactSection-Form-Email,
+.ContactSection-Form-Message {
+  display: flex;
+  flex-direction: column;
+}
+
+.Contacts-Form-Input {
+  min-height: 30px;
+  min-width: 500px;
+  padding: 12px;
+  line-height: 1.6;
+  background-color: var(--color-level1);
+  border: none;
+}
+
+.Message {
+  min-height: 120px;
+  margin-bottom: 20px;
+}
+
+.ContactSection-Form button {
+  background-color: var(--color-primary);
+  border-radius: 0;
+  padding: 25px;
+}
+
+.Footer{
+  background-color: var(--color-level1);
+  padding: 30px 0px;
+}
+
+.Footer__Container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Footer-MainInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Footer-MainInfo-Referals{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:20px;
+}
+
+.Footer-MainInfo-Referals a{
+  margin-right: 150px;
+  margin-top: 10px;
+  color: var(--color-text);
+}
+
+.Footer-MainInfo-Referals a:hover{
+  color: var(--color-primary);
+}
+
+.Footer-MainInfo-Social p {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: var(--heading3-font-weight);
+  font-size: var(--heading3-font-size);
+}
+
+
+
+.Footer-AdditionalInfo{
+  margin-top: 20px;
 }

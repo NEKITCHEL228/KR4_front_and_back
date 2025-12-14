@@ -4,7 +4,7 @@ function DribleSection() {
 
 
     return (
-        <section className="DribleSection">
+        <section className="DribleSection" id="DribleSection" data-section>
             <div className="DribleSection__Container">
                 <div className="DribleSection-Text">
                     <h2 className="Heading2 White">Dribbble</h2>

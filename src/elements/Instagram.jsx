@@ -4,7 +4,7 @@ function InstagramSection() {
 
 
     return (
-        <section className="InstagramSection">
+        <section className="InstagramSection" id="InstagramSection" data-section>
 
             <div className="InstagramSection__Container">
 
