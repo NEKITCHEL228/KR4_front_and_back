@@ -4,6 +4,7 @@ import '../App.css'
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [VisibleSection, setVisibleSection] = useState('HeroSection');
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const sectionsRef = useRef({});
 
@@ -64,6 +65,10 @@ function Navbar() {
         }
     }
 
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
+
     return (
 
         <header className={`Navbar ${scrolled ? 'Navbar--Scrolled' : ''}`} id="Navbar">
@@ -73,12 +78,13 @@ function Navbar() {
                 </div>
 
                 <div className="Navbar-Second">
-                    <ul className="Navbar-Second-List">
+                    <ul className={`Navbar-Second-List ${isMenuOpen ? 'Navbar-Second-List--Visible' : ''}`}>
                         <li className="Navbar-Second-List-Item"><a href="#Experience" onClick={(e) => { e.preventDefault(); scrollToSmthng('Experience'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('Experience')} ${isActive('ValueSection')} ${isActive('SkillSet')} ${isActive('ComapniesLineSection')}`}>Experience</a></li>
                         <li className="Navbar-Second-List-Item"><a href="#MyProjects" onClick={(e) => { e.preventDefault(); scrollToSmthng('MyProjects'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('MyProjects')} ${isActive('InstagramSection')} ${isActive('DribleSection')} ${isActive('ThoughtsSection')}`}>Work</a></li>
                         <li className="Navbar-Second-List-Item"><a href="#Photography" onClick={(e) => {e.preventDefault(); scrollToSmthng('PhotographySection'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('PhotographySection')}`}>Photography</a></li>
                         <li className="Navbar-Second-List-Item"><a href="#Contact" onClick={(e) => {e.preventDefault(); scrollToSmthng('ContactSection')}} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('ContactSection')}`}>Contact</a></li>
                     </ul>
+                    <button className='Navbar-Second-List-Button' onClick={toggleMenu}></button>
                 </div>
             </div>
 

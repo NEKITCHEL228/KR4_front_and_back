@@ -1,4 +1,6 @@
-
+import FooterIcon1 from '../assets/icons/FooterSection-icon1.svg?react';
+import FooterIcon2 from '../assets/icons/FooterSection-icon2.svg?react';
+import FooterIcon3 from '../assets/icons/FooterSection-icon3.svg?react';
 
 function Footer(){
 
@@ -9,7 +11,9 @@ function Footer(){
                     <div className="Footer-MainInfo-Social">
                         <p href="#">Robin.W</p>
                         <div className="Footer-MainInfo-Social-Logo">
-                            
+                            <a href="#"><FooterIcon1 /></a>
+                            <a href="#"><FooterIcon2 /></a>
+                            <a href="#"><FooterIcon3 /></a>
                         </div>
                     </div>
 
