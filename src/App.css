@@ -279,18 +279,28 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 650px;
 }
 
 .HeroSection-Picture {
   position: relative;
-  flex: 0 1 750px;
+  flex: 0 1 45%;
   transform: translateX(44px);
   z-index: 101;
+  overflow: hidden;
+  height: 650px;
+}
+
+.HeroSection-Picture img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .HeroSection-Text {
-  flex: 0 0 738px;
+  position: relative;
+  flex: 0 0 750px;
   z-index: 103;
   transform: translateX(-44px);
 }
@@ -385,7 +395,12 @@ main {
 }
 
 .SkillSet-Text {
+  padding: 2rem;
   width: 50%;
+}
+
+.SkillSet-Text h2 {
+  margin-bottom: 15px;
 }
 
 .SkillSet-Grid {
@@ -710,6 +725,7 @@ h2 {
 
 .PhotographySection-Button {
   padding: 20px;
+  opacity: 0.6;
 
   border-radius: 0;
   border: 1px solid var(--color-primary);
@@ -719,6 +735,7 @@ h2 {
 
 .PhotographySection-Button--Active {
   background-color: var(--color-primary);
+  opacity: 1;
 }
 
 .PhotographySection-Pictures {
@@ -728,11 +745,12 @@ h2 {
 .PhotographySection-Pictures--Active {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 421px;
   gap: 24px;
 }
 
 .PhotographySection-Pictures-Item {
-
+  min-height: 421px;
   display: block;
 }
 
@@ -751,6 +769,7 @@ h2 {
 .ContactSection__Container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 10px;
   padding: 0 110px;
   justify-self: center;
   justify-items: center;
@@ -870,6 +889,11 @@ h2 {
     font-size: var(--heading2-font-size);
   }
 
+  .HeroSection-Picture {
+    transform: translateX(0px);
+    flex: 0 1 45%;
+  }
+
   .HeroSection-Text {
     flex: 0 1 55%;
     transform: translateX(-66px);
@@ -882,13 +906,55 @@ h2 {
   }
 
   .PhotographySection-Pictures--Active {
-    grid-template-columns: repeat(auto-fit, minmax(306px, 1fr));
+    grid-template-columns: repeat(3, minmax(306px, 1fr));
+  }
+
+  .SkillSet__Container {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .SkillSet-Text {
+    width: 100%;
+  }
+
+
+}
+
+@media (max-width: 1180px) {
+
+  .ContactSection-Form-Input {
+    min-width: clamp(300px, 40%, 500px);
+  }
+
+  .ContactSection-Form-Email {
+    min-width: clamp(300px, 40%, 500px);
+  }
+
+  .ContactSection-Form-Message {
+    min-width: clamp(300px, 40%, 500px);
+  }
+}
+
+@media (max-width: 1040px) {
+
+
+  .PhotographySection-Pictures--Active {
+    grid-template-columns: repeat(2, minmax(306px, 1fr));
+  }
+
+  .ContactSection__Container {
+    padding: 0px 40px;
   }
 }
 
 @media (max-width: 768px) {
+  .Heading2 {
+    font-size: 32px;
+  }
+
   .CompaniesLine {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(306px, 1fr));
   }
 
   .Navbar-Second-List {
@@ -902,6 +968,53 @@ h2 {
 
   .Navbar-Second-List--Visible {
     display: flex;
+  }
+
+  .MyProjects-Items {
+    grid-template-columns: 1fr;
+  }
+
+  .SkillSet__Container {
+    gap: 0;
+  }
+
+  .SkillSet-Grid {
+    grid-template-columns: 1fr;
+  }
+
+  .DribleSection__Container {
+    padding: 0 40px;
+  }
+
+  .ThoughtsSection__Container {
+    grid-template-columns: 1fr;
+  }
+
+  .ThoughtsSection-Cards {
+    grid-column: 1;
+  }
+
+  .PhotographySection-Buttons {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+
+  .PhotographySection-Pictures--Active {
+    grid-template-columns: repeat(1, minmax(306px, 1fr));
+  }
+
+  .ContactSection__Container {
+    grid-template-columns: 1fr;
+  }
+
+  .ContactSection-Text {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 712px) {
+  .CompaniesLine {
+    grid-template-columns: repeat(1, minmax(306px, 1fr));
   }
 }
 

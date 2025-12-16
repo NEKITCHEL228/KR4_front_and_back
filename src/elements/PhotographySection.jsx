@@ -18,15 +18,26 @@ import BrazilPicture2 from '../assets/Brazil-Picture2.jpg';
 
 
 function PhotographySection() {
-    const [buttonActive, setButtonActive] = useState('Italy-Button');
+    const [activeCountry, setActiveCountry] = useState('italy');
 
-    function setButton(name) {
-        return name === buttonActive ? 'PhotographySection-Button--Active' : '';
-    }
-
-    function setPictures(name) {
-        return name === buttonActive ? 'PhotographySection-Pictures--Active' : '';
-    }
+    const countries = {
+        italy: {
+            name: 'ITALY',
+            pictures: [ItalyPicture1, ItalyPicture2, ItalyPicture3, ItalyPicture4]
+        },
+        australia: {
+            name: 'AUSTRALIA',
+            pictures: [AustraliaPicture1, AustraliaPicture2, AustraliaPicture3]
+        },
+        india: {
+            name: 'INDIA',
+            pictures: [IndiaPicture1, IndiaPicture2, IndiaPicture3]
+        },
+        brazil: {
+            name: 'BRAZIL',
+            pictures: [BrazilPicture1, BrazilPicture2]
+        }
+    };
 
     return (
         <section className="PhotographySection" id="PhotographySection" data-section>
@@ -36,93 +47,25 @@ function PhotographySection() {
 
                 <div className="PhotographySection-Tab">
                     <div className="PhotographySection-Buttons">
-                        <button id="Italy-Button" className={`Button White PhotographySection-Button ${setButton('Italy-Button')}`} onClick={(e) => { e.preventDefault(); setButtonActive('Italy-Button'); }}>ITALY</button>
-                        <button id="Australia-Button" className={`Button White PhotographySection-Button ${setButton('Australia-Button')}`} onClick={(e) => { e.preventDefault(); setButtonActive('Australia-Button'); }}>AUSTRALIA</button>
-                        <button id="India-Button" className={`Button White PhotographySection-Button ${setButton('India-Button')}`} onClick={(e) => { e.preventDefault(); setButtonActive('India-Button'); }}>INDIA</button>
-                        <button id="Brazil-Button" className={`Button White PhotographySection-Button ${setButton('Brazil-Button')}`} onClick={(e) => { e.preventDefault(); setButtonActive('Brazil-Button'); }}>BRAZIL</button>
+                        {Object.keys(countries).map(country => (
+                            <button
+                                key={country}
+                                className={`Button White PhotographySection-Button ${activeCountry === country ? 'PhotographySection-Button--Active' : ''}`}
+                                onClick={() => setActiveCountry(country)}
+                            >
+                                {countries[country].name}
+                            </button>
+                        ))}
                     </div>
 
-                    <div className={`PhotographySection-Pictures ${setPictures('Italy-Button')}`} id="PhotographySection-Italy-Pictures">
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={ItalyPicture1} alt="ItalyPicture1" />
-                            </picture>
-                        </div>
-
-                        <div className='PhotographySection-Pictures-Item' >
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={ItalyPicture2} alt="ItalyPicture2" />
-                            </picture>
-                        </div>
-
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={ItalyPicture3} alt="ItalyPicture3" />
-                            </picture>
-                        </div>
-
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={ItalyPicture4} alt="ItalyPicture4" />
-                            </picture>
-                        </div>
-                    </div>
-
-                    <div className={`PhotographySection-Pictures ${setPictures('Australia-Button')}`} id="PhotographySection-Australia-Pictures">
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={AustraliaPicture1} alt="AustraliaPicture1" />
-                            </picture>
-                        </div>
-
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={AustraliaPicture2} alt="AustraliaPicture2" />
-                            </picture>
-                        </div>
-
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={AustraliaPicture3} alt="AustraliaPicture3" />
-                            </picture>
-                        </div>
-
-                    </div>
-
-                    <div className={`PhotographySection-Pictures ${setPictures('India-Button')}`} id='PhotographySection-India-Pictures'>
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={IndiaPicture1} alt="IndiaPicture1" />
-                            </picture>
-                        </div>
-
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={IndiaPicture2} alt="IndiaPicture2" />
-                            </picture>
-                        </div>
-
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={IndiaPicture3} alt="IndiaPicture3" />
-                            </picture>
-                        </div>
-
-                    </div>
-
-                    <div className={`PhotographySection-Pictures ${setPictures('Brazil-Button')}`} id='PhotographySection-Brazil-Pictures'>
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={BrazilPicture1} alt="BrazilPicture1" />
-                            </picture>
-                        </div>
-
-                        <div className='PhotographySection-Pictures-Item'>
-                            <picture className='PhotographySection-Pictures-Picture'>
-                                <img src={BrazilPicture2} alt="BrazilPicture2" />
-                            </picture>
-                        </div>
-
+                    <div className="PhotographySection-Pictures PhotographySection-Pictures--Active">
+                        {countries[activeCountry].pictures.map((picture, index) => (
+                            <div key={index} className='PhotographySection-Pictures-Item'>
+                                <picture className='PhotographySection-Pictures-Picture'>
+                                    <img src={picture} alt={`${activeCountry} picture ${index + 1}`} />
+                                </picture>
+                            </div>
+                        ))}
                     </div>
 
                 </div>
