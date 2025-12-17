@@ -21,6 +21,25 @@ function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+
+    // Блокировка скролла при открытом меню
+    useEffect(() => {
+        if (isMenuOpen) {
+            // Если меню открыто — запрещаем скролл
+            document.body.style.overflow = 'hidden';
+        } else {
+            // Если закрыто — возвращаем как было
+            document.body.style.overflow = '';
+        }
+
+        // Функция очистки (на случай, если компонент размонтируется)
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMenuOpen]); // Срабатывает каждый раз, когда меняется isMenuOpen
+
+
+
     useEffect(() => {
         const options = {
             root: null, // относительно viewport
@@ -53,14 +72,15 @@ function Navbar() {
         const section = document.getElementById(smthng);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setIsMenuOpen(false);
         }
     };
 
     const isActive = (section) => {
-        if (VisibleSection == section){
+        if (VisibleSection == section) {
             return 'Navbar-Second-List-Link--Active';
         }
-        else{
+        else {
             return '';
         }
     }
@@ -69,10 +89,14 @@ function Navbar() {
         setIsMenuOpen(!isMenuOpen);
     }
 
+
+
     return (
 
         <header className={`Navbar ${scrolled ? 'Navbar--Scrolled' : ''}`} id="Navbar">
+
             <div className='Navbar__Container'>
+
                 <div className="Navbar-Main">
                     <a href="#HeroSection" onClick={(e) => { e.preventDefault(); scrollToSmthng('HeroSection'); }} className="Navbar-Main-Link">Robin. W</a>
                 </div>
@@ -81,11 +105,14 @@ function Navbar() {
                     <ul className={`Navbar-Second-List ${isMenuOpen ? 'Navbar-Second-List--Visible' : ''}`}>
                         <li className="Navbar-Second-List-Item"><a href="#Experience" onClick={(e) => { e.preventDefault(); scrollToSmthng('Experience'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('Experience')} ${isActive('ValueSection')} ${isActive('SkillSet')} ${isActive('ComapniesLineSection')}`}>Experience</a></li>
                         <li className="Navbar-Second-List-Item"><a href="#MyProjects" onClick={(e) => { e.preventDefault(); scrollToSmthng('MyProjects'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('MyProjects')} ${isActive('InstagramSection')} ${isActive('DribleSection')} ${isActive('ThoughtsSection')}`}>Work</a></li>
-                        <li className="Navbar-Second-List-Item"><a href="#Photography" onClick={(e) => {e.preventDefault(); scrollToSmthng('PhotographySection'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('PhotographySection')}`}>Photography</a></li>
-                        <li className="Navbar-Second-List-Item"><a href="#Contact" onClick={(e) => {e.preventDefault(); scrollToSmthng('ContactSection')}} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('ContactSection')}`}>Contact</a></li>
+                        <li className="Navbar-Second-List-Item"><a href="#Photography" onClick={(e) => { e.preventDefault(); scrollToSmthng('PhotographySection'); }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('PhotographySection')}`}>Photography</a></li>
+                        <li className="Navbar-Second-List-Item"><a href="#Contact" onClick={(e) => { e.preventDefault(); scrollToSmthng('ContactSection') }} className={`Navbar-Second-List-Link ${scrolled ? 'Navbar-Second-List-Link--Scrolled' : ''} ${isActive('ContactSection')}`}>Contact</a></li>
                     </ul>
+
                     <button className='Navbar-Second-List-Button' onClick={toggleMenu}></button>
+
                 </div>
+
             </div>
 
         </header>
